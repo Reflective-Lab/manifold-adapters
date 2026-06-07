@@ -1,0 +1,7 @@
+# Pin rustc to a specific stable release so trybuild fixtures, clippy lints,
+# and macro-expansion output stay deterministic across contributor machines
+# and CI runners. Aligned with the workspace MSRV (Cargo.toml
+# [workspace.package] rust-version).
+[toolchain]
+channel = "1.96.0"
+components = ["rustfmt", "clippy"]
