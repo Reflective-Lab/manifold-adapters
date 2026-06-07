@@ -22,7 +22,7 @@ Read and follow `AGENTS.md` — it is the canonical project documentation.
 This extension targets:
 
 - Converge >= 3.9.1
-- MSRV 1.94.0
+- MSRV 1.96.0
 - Edition 2024
 - `unsafe_code = "forbid"`
 
