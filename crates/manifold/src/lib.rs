@@ -108,14 +108,14 @@ pub use search::{
     WebFetchTimeoutMs, WebFetchUrl, WebSearchBackend, WebSearchError, WebSearchImage,
     WebSearchRequest, WebSearchResponse, WebSearchResult,
 };
+#[cfg(feature = "gcp-secrets")]
+pub use secret::GcpSecretProvider;
+#[cfg(target_os = "macos")]
+pub use secret::KeychainSecretProvider;
 pub use secret::{
     DefaultSecretProvider, EnvSecretProvider, SecretError, SecretProvider, SecretString,
     default_secret_provider,
 };
-#[cfg(target_os = "macos")]
-pub use secret::KeychainSecretProvider;
-#[cfg(feature = "gcp-secrets")]
-pub use secret::GcpSecretProvider;
 #[cfg(feature = "tavily")]
 pub use tavily::TavilySearchProvider;
 #[cfg(feature = "tools")]

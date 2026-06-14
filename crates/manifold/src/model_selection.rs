@@ -1158,9 +1158,7 @@ pub fn is_provider_available(provider: &str) -> bool {
         #[cfg(feature = "deepseek")]
         "deepseek" => secrets.has_secret("DEEPSEEK_API_KEY"),
         #[cfg(feature = "baidu")]
-        "baidu" => {
-            secrets.has_secret("BAIDU_API_KEY") && secrets.has_secret("BAIDU_SECRET_KEY")
-        }
+        "baidu" => secrets.has_secret("BAIDU_API_KEY") && secrets.has_secret("BAIDU_SECRET_KEY"),
         #[cfg(feature = "zhipu")]
         "zhipu" => secrets.has_secret("ZHIPU_API_KEY"),
         #[cfg(feature = "kimi")]

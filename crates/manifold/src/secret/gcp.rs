@@ -6,8 +6,8 @@
 use std::collections::HashMap;
 use std::sync::Mutex;
 
-use reqwest::blocking::Client;
 use reqwest::StatusCode;
+use reqwest::blocking::Client;
 
 use super::names::{gcp_short_name, logical_key_aliases};
 use super::{SecretError, SecretProvider, SecretString};
@@ -48,11 +48,7 @@ impl GcpSecretProvider {
     }
 
     #[must_use]
-    pub fn new(
-        project_id: impl Into<String>,
-        env: impl Into<String>,
-        app: Option<String>,
-    ) -> Self {
+    pub fn new(project_id: impl Into<String>, env: impl Into<String>, app: Option<String>) -> Self {
         Self {
             project_id: project_id.into(),
             env: env.into(),
