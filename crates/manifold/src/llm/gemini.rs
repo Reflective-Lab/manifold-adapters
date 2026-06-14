@@ -9,7 +9,7 @@ use sha2::{Digest, Sha256};
 use super::error_classification::{classify_http_error, network_error, parse_error};
 use super::format_contract::finalize_chat_response;
 use super::retry::{RetryOutcome, retry_with_backoff};
-use crate::secret::{EnvSecretProvider, SecretProvider, SecretString};
+use crate::secret::{SecretProvider, SecretString, default_secret_provider};
 use converge_core::backend::{BackendError, BackendResult};
 use converge_provider::{
     BoxFuture, ChatBackend, ChatRequest, ChatResponse, ChatRole, FinishReason as ChatFinishReason,
@@ -51,7 +51,7 @@ impl GeminiBackend {
     }
 
     pub fn from_env() -> BackendResult<Self> {
-        Self::from_secret_provider(&EnvSecretProvider)
+        Self::from_secret_provider(default_secret_provider())
     }
 
     pub fn from_secret_provider(secrets: &dyn SecretProvider) -> BackendResult<Self> {

@@ -122,13 +122,26 @@ let store = build_store(&config)?;
 ```
 
 ```rust
-use manifold::{AnthropicBackend, EnvSecretProvider};
+use manifold::{AnthropicBackend, default_secret_provider};
 use converge_provider::{ChatBackend, ChatRequest};
 
-let backend = AnthropicBackend::from_secret_provider(&EnvSecretProvider)?;
+// Keys resolve from macOS Keychain (dev) or GCP Secret Manager (deployed).
+let backend = AnthropicBackend::from_secret_provider(default_secret_provider())?;
 // Product or Runtime Runway assembly registers the backend handle through
 // converge_provider::ChatBackendRegistry.
 ```
+
+### Credentials
+
+Manifold does not read committed `.env` files for API keys. `DefaultSecretProvider`
+resolves secrets in order:
+
+1. **macOS Keychain** — `OPENAI_API_KEY` → service `openai-api-key`
+2. **GCP Secret Manager** (`gcp-secrets` feature) — Runway names like
+   `dev-platform-openai-api-key`
+3. **Environment** — only when `MANIFOLD_ALLOW_ENV_SECRETS=1` (CI)
+
+Non-secret configuration (gateway URLs, regions) remains in env vars.
 
 ## Development
 

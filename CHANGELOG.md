@@ -7,6 +7,23 @@ Versioning before 1.0 with the usual pre-1.0 compatibility caveats.
 
 ## [Unreleased]
 
+### Added
+
+- `DefaultSecretProvider` resolves adapter credentials from macOS Keychain
+  (local dev) and GCP Secret Manager (`gcp-secrets` feature, deployed hosts).
+  Environment variables are opt-in via `MANIFOLD_ALLOW_ENV_SECRETS=1` for CI —
+  not the default dev path.
+- `KeychainSecretProvider` (macOS) and `GcpSecretProvider` (Runway naming:
+  `{env}-platform-{name}` / `{env}-{app}-{name}`).
+- Logical-key aliases (`KONG_API_KEY` ↔ `KONG_CONSUMER_API_KEY`,
+  `MINIMAX_API_KEY` ↔ `MINMAX_API_KEY`, `GROK_API_KEY` ↔ `XAI_API_KEY`).
+
+### Changed
+
+- `select_chat_backend`, LLM `from_env()` constructors, and
+  `is_provider_available` now use `default_secret_provider()` instead of
+  reading env vars directly.
+
 ### Fixed
 
 - `select_chat_backend` now reports `SelectedChatBackend::provider()` and

@@ -105,8 +105,10 @@ staik = ["_http", "_chat"]
 brave = ["_http", "dep:urlencoding"]
 tavily = ["_http"]
 tools = []
+gcp-secrets = ["_http"]
 llm-all = [
     "registry",
+    "gcp-secrets",
     "anthropic",
     "gemini",
     "openai",

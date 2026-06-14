@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 use crate::llm::OpenAiBackend;
-use crate::secret::{EnvSecretProvider, SecretProvider};
+use crate::secret::{SecretProvider, default_secret_provider};
 use converge_core::backend::{BackendError, BackendResult};
 use converge_provider::{BoxFuture, ChatBackend, ChatRequest, ChatResponse, LlmError};
 
@@ -16,7 +16,7 @@ pub struct WriterBackend {
 
 impl WriterBackend {
     pub fn from_env() -> BackendResult<Self> {
-        Self::from_secret_provider(&EnvSecretProvider)
+        Self::from_secret_provider(default_secret_provider())
     }
 
     pub fn from_secret_provider(secrets: &dyn SecretProvider) -> BackendResult<Self> {

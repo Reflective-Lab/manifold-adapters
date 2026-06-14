@@ -32,7 +32,7 @@ use crate::llm::StaikBackend;
 #[cfg(feature = "writer")]
 use crate::llm::WriterBackend;
 use crate::model_selection::{FitnessBreakdown, ModelMetadata, ProviderRegistry, SelectionResult};
-use crate::secret::{EnvSecretProvider, SecretProvider};
+use crate::secret::{SecretProvider, default_secret_provider};
 use converge_provider::{
     ChatBackendCapabilities, ChatBackendDescriptor, ChatBackendRegistry,
     ChatBackendSelectionConfig, ChatMessage, ChatRequest, ChatRole, ContextWindowTokens,
@@ -61,7 +61,7 @@ impl SelectedChatBackend {
 pub fn select_chat_backend(
     config: &ChatBackendSelectionConfig,
 ) -> Result<SelectedChatBackend, LlmError> {
-    select_chat_backend_with_secret_provider(config, &EnvSecretProvider)
+    select_chat_backend_with_secret_provider(config, default_secret_provider())
 }
 
 pub fn select_chat_backend_with_secret_provider(
@@ -106,7 +106,7 @@ fn selection_for_resolved_backend(
 pub async fn select_healthy_chat_backend(
     config: &ChatBackendSelectionConfig,
 ) -> Result<SelectedChatBackend, LlmError> {
-    select_healthy_chat_backend_with_secret_provider(config, &EnvSecretProvider).await
+    select_healthy_chat_backend_with_secret_provider(config, default_secret_provider()).await
 }
 
 /// Like [`select_healthy_chat_backend`] but with an explicit secret provider.

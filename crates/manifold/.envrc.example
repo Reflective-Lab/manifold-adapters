@@ -1,61 +1,16 @@
-# Provider API keys and endpoints.
+# Manifold provider credentials
 #
-# Copy to .envrc and run `direnv allow`. Store keys in macOS Keychain:
-#   security add-generic-password -a "$USER" -s <name> -w
-# where <name> is the lowercase-hyphenated form of the var
-# (e.g., ANTHROPIC_API_KEY -> anthropic-api-key).
+# Manifold resolves API keys from secret backends — not from this file.
 #
-# Do not commit real secrets — this file references Keychain entries,
-# so it is safe to commit. Empty Keychain lookups silently return blank.
-
-# Core LLM providers
-export ANTHROPIC_API_KEY="$(security find-generic-password -s anthropic-api-key -w 2>/dev/null)"
-export OPENAI_API_KEY="$(security find-generic-password -s openai-api-key -w 2>/dev/null)"
-export GEMINI_API_KEY="$(security find-generic-password -s gemini-api-key -w 2>/dev/null)"
-export MISTRAL_API_KEY="$(security find-generic-password -s mistral-api-key -w 2>/dev/null)"
-export PERPLEXITY_API_KEY="$(security find-generic-password -s perplexity-api-key -w 2>/dev/null)"
-export OPENROUTER_API_KEY="$(security find-generic-password -s openrouter-api-key -w 2>/dev/null)"
-export GROK_API_KEY="$(security find-generic-password -s grok-api-key -w 2>/dev/null)"
-export DEEPSEEK_API_KEY="$(security find-generic-password -s deepseek-api-key -w 2>/dev/null)"
-export QWEN_API_KEY="$(security find-generic-password -s qwen-api-key -w 2>/dev/null)"
-export KIMI_API_KEY="$(security find-generic-password -s kimi-api-key -w 2>/dev/null)"
-export MINMAX_API_KEY="$(security find-generic-password -s minmax-api-key -w 2>/dev/null)"
-export APERTUS_API_KEY="$(security find-generic-password -s apertus-api-key -w 2>/dev/null)"
-export ZHIPU_API_KEY="$(security find-generic-password -s zhipu-api-key -w 2>/dev/null)"
-export BAIDU_API_KEY="$(security find-generic-password -s baidu-api-key -w 2>/dev/null)"
-export BAIDU_SECRET_KEY="$(security find-generic-password -s baidu-secret-key -w 2>/dev/null)"
-
-# Additional model catalogs present in the repo
-export COHERE_API_KEY="$(security find-generic-password -s cohere-api-key -w 2>/dev/null)"
-export AI21_API_KEY="$(security find-generic-password -s ai21-api-key -w 2>/dev/null)"
-export DOUBAO_API_KEY="$(security find-generic-password -s doubao-api-key -w 2>/dev/null)"
-export YI_API_KEY="$(security find-generic-password -s yi-api-key -w 2>/dev/null)"
-export BAICHUAN_API_KEY="$(security find-generic-password -s baichuan-api-key -w 2>/dev/null)"
-export STEPFUN_API_KEY="$(security find-generic-password -s stepfun-api-key -w 2>/dev/null)"
-export GROQ_API_KEY="$(security find-generic-password -s groq-api-key -w 2>/dev/null)"
-export TOGETHER_API_KEY="$(security find-generic-password -s together-api-key -w 2>/dev/null)"
-export FIREWORKS_API_KEY="$(security find-generic-password -s fireworks-api-key -w 2>/dev/null)"
-export AZURE_OPENAI_API_KEY="$(security find-generic-password -s azure-openai-api-key -w 2>/dev/null)"
-export AZURE_OPENAI_ENDPOINT=""
-export AWS_ACCESS_KEY_ID="$(security find-generic-password -s aws-access-key-id -w 2>/dev/null)"
-export AWS_SECRET_ACCESS_KEY="$(security find-generic-password -s aws-secret-access-key -w 2>/dev/null)"
-export AWS_REGION=""
-
-# Search / retrieval / OCR / embedding
-export BRAVE_API_KEY="$(security find-generic-password -s brave-api-key -w 2>/dev/null)"
-export TAVILY_API_KEY="$(security find-generic-password -s tavily-api-key -w 2>/dev/null)"
-export HUGGINGFACE_API_KEY="$(security find-generic-password -s huggingface-api-key -w 2>/dev/null)"
-export DASHSCOPE_API_KEY="$(security find-generic-password -s dashscope-api-key -w 2>/dev/null)"
-
-# Patent / research data providers
-export PATENTSVIEW_BASE_URL=""
-export WIPO_PATENTSCOPE_API_KEY="$(security find-generic-password -s wipo-patentscope-api-key -w 2>/dev/null)"
-export WIPO_PATENTSCOPE_BASE_URL=""
-export EPO_OPS_CONSUMER_KEY="$(security find-generic-password -s epo-ops-consumer-key -w 2>/dev/null)"
-export EPO_OPS_CONSUMER_SECRET="$(security find-generic-password -s epo-ops-consumer-secret -w 2>/dev/null)"
-export EPO_OPS_TOKEN_URL=""
-export LENS_API_KEY="$(security find-generic-password -s lens-api-key -w 2>/dev/null)"
-
-# Business / custom integrations
-export LINKEDIN_API_KEY="$(security find-generic-password -s linkedin-api-key -w 2>/dev/null)"
-export EXAMPLE_API_KEY="$(security find-generic-password -s example-api-key -w 2>/dev/null)"
+# Local dev (macOS): store keys in Keychain:
+#   security add-generic-password -a "$USER" -s openai-api-key -w
+# Service names follow the logical key: OPENAI_API_KEY → openai-api-key
+#
+# Deployed (GCP): Runtime Runway Secret Manager naming:
+#   {env}-platform-{short_name}  or  {env}-{app}-{short_name}
+# Set GCP_PROJECT (or GOOGLE_CLOUD_PROJECT), ENV, and APP_NAME in the host.
+#
+# CI only: set MANIFOLD_ALLOW_ENV_SECRETS=1 to read keys from the environment.
+#
+# Non-secret config (gateway URLs, model overrides) may still use env:
+export KONG_AI_GATEWAY_URL=https://c47529e9da.eu.serverless.gateways.konggateway.com

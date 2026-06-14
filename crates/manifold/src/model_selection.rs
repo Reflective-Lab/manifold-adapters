@@ -10,6 +10,7 @@
 
 use serde::{Deserialize, Serialize};
 
+use crate::secret::{SecretProvider, default_secret_provider};
 use converge_provider::LlmError;
 use converge_provider::selection::{
     AgentRequirements, ComplianceLevel, CostClass, DataSovereignty, ModelSelectorTrait,
@@ -1124,9 +1125,7 @@ pub fn set_skip_availability_check(skip: bool) {
     SKIP_AVAILABILITY_CHECK.store(skip, std::sync::atomic::Ordering::SeqCst);
 }
 
-/// Checks if a provider is available (has API key set).
-///
-/// Returns `true` if the environment variable for the provider is set.
+/// Checks if a provider is available (credential resolvable via Manifold secrets).
 #[must_use]
 pub fn is_provider_available(provider: &str) -> bool {
     // In test mode, we can bypass availability checks to allow mock providers
@@ -1135,42 +1134,44 @@ pub fn is_provider_available(provider: &str) -> bool {
         return true;
     }
 
+    #[allow(unused_variables)]
+    let secrets = default_secret_provider();
     match provider {
         #[cfg(feature = "anthropic")]
-        "anthropic" => std::env::var("ANTHROPIC_API_KEY").is_ok(),
+        "anthropic" => secrets.has_secret("ANTHROPIC_API_KEY"),
         #[cfg(feature = "openai")]
-        "openai" => std::env::var("OPENAI_API_KEY").is_ok(),
+        "openai" => secrets.has_secret("OPENAI_API_KEY"),
         #[cfg(feature = "gemini")]
-        "gemini" => std::env::var("GEMINI_API_KEY").is_ok(),
+        "gemini" => secrets.has_secret("GEMINI_API_KEY"),
         #[cfg(feature = "perplexity")]
-        "perplexity" => std::env::var("PERPLEXITY_API_KEY").is_ok(),
+        "perplexity" => secrets.has_secret("PERPLEXITY_API_KEY"),
         #[cfg(feature = "openrouter")]
-        "openrouter" => std::env::var("OPENROUTER_API_KEY").is_ok(),
+        "openrouter" => secrets.has_secret("OPENROUTER_API_KEY"),
         #[cfg(feature = "qwen")]
-        "qwen" => std::env::var("QWEN_API_KEY").is_ok(),
+        "qwen" => secrets.has_secret("QWEN_API_KEY"),
         #[cfg(feature = "minmax")]
-        "minmax" => std::env::var("MINIMAX_API_KEY").is_ok(),
+        "minmax" => secrets.has_secret("MINIMAX_API_KEY"),
         #[cfg(feature = "grok")]
-        "grok" => std::env::var("GROK_API_KEY").is_ok(),
+        "grok" => secrets.has_secret("GROK_API_KEY"),
         #[cfg(feature = "mistral")]
-        "mistral" => std::env::var("MISTRAL_API_KEY").is_ok(),
+        "mistral" => secrets.has_secret("MISTRAL_API_KEY"),
         #[cfg(feature = "deepseek")]
-        "deepseek" => std::env::var("DEEPSEEK_API_KEY").is_ok(),
+        "deepseek" => secrets.has_secret("DEEPSEEK_API_KEY"),
         #[cfg(feature = "baidu")]
         "baidu" => {
-            std::env::var("BAIDU_API_KEY").is_ok() && std::env::var("BAIDU_SECRET_KEY").is_ok()
+            secrets.has_secret("BAIDU_API_KEY") && secrets.has_secret("BAIDU_SECRET_KEY")
         }
         #[cfg(feature = "zhipu")]
-        "zhipu" => std::env::var("ZHIPU_API_KEY").is_ok(),
+        "zhipu" => secrets.has_secret("ZHIPU_API_KEY"),
         #[cfg(feature = "kimi")]
-        "kimi" => std::env::var("KIMI_API_KEY").is_ok(),
+        "kimi" => secrets.has_secret("KIMI_API_KEY"),
         #[cfg(feature = "apertus")]
-        "apertus" => std::env::var("APERTUS_API_KEY").is_ok(),
+        "apertus" => secrets.has_secret("APERTUS_API_KEY"),
         #[cfg(feature = "staik")]
-        "staik" => std::env::var("STAIK_API_KEY").is_ok(),
+        "staik" => secrets.has_secret("STAIK_API_KEY"),
         // Search providers
         #[cfg(feature = "brave")]
-        "brave" => std::env::var("BRAVE_API_KEY").is_ok(),
+        "brave" => secrets.has_secret("BRAVE_API_KEY"),
         _ => false,
     }
 }
