@@ -11,6 +11,10 @@
 use serde::{Deserialize, Serialize};
 
 use crate::secret::default_secret_provider;
+// has_secret is a SecretProvider trait method; its call sites are all behind
+// provider feature gates, so the import is unused in a featureless build.
+#[allow(unused_imports)]
+use crate::secret::SecretProvider as _;
 use converge_provider::LlmError;
 use converge_provider::selection::{
     AgentRequirements, ComplianceLevel, CostClass, DataSovereignty, ModelSelectorTrait,
