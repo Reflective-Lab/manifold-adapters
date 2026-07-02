@@ -76,6 +76,8 @@ security-audit:
         --ignore RUSTSEC-2024-0436 \
         --ignore RUSTSEC-2025-0134 \
         --ignore RUSTSEC-2026-0002
+        --ignore RUSTSEC-2026-0194
+        --ignore RUSTSEC-2026-0195
     cargo deny check
 
 # Session opener
