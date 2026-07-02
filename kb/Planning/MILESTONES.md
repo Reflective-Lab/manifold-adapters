@@ -1,3 +1,6 @@
+> **Archived 2026-07-02** — active milestone tracking moved to Linear (Reflective team).
+> This file is kept for historical context only. Do not add new items here.
+
 ---
 source: mixed
 ---
