@@ -723,13 +723,14 @@ fn read_text(
     reader: &mut Reader<&[u8]>,
     start: &BytesStart<'_>,
 ) -> Result<Option<String>, FeedError> {
-    reader
+    let text = reader
         .read_text(start.name())
-        .map(|text| {
-            let trimmed = text.trim();
-            (!trimmed.is_empty()).then_some(trimmed.to_string())
-        })
-        .map_err(|error| FeedError::Parse(error.to_string()))
+        .map_err(|error| FeedError::Parse(error.to_string()))?;
+    let text = text
+        .decode()
+        .map_err(|error| FeedError::Parse(error.to_string()))?;
+    let trimmed = text.trim();
+    Ok((!trimmed.is_empty()).then_some(trimmed.to_string()))
 }
 
 fn local_name(name: &[u8]) -> String {
@@ -744,7 +745,7 @@ fn attr_value(reader: &Reader<&[u8]>, start: &BytesStart<'_>, key: &[u8]) -> Opt
         .find(|attribute| local_name(attribute.key.as_ref()).as_bytes() == key)
         .and_then(|attribute| {
             attribute
-                .decode_and_unescape_value(reader.decoder())
+                .decoded_and_normalized_value(quick_xml::XmlVersion::Implicit1_0, reader.decoder())
                 .ok()
                 .map(std::borrow::Cow::into_owned)
         })

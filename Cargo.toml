@@ -33,7 +33,7 @@ parking_lot = "0.12"
 proptest = "1.5"
 lancedb = { version = "0.26", default-features = false }
 object_store = "0.13"
-quick-xml = "0.39"
+quick-xml = "0.41"
 regex-lite = "0.1"
 reqwest = { version = "0.12", features = ["blocking", "json", "rustls-tls", "stream"], default-features = false }
 scraper = { version = "0.20", default-features = false }

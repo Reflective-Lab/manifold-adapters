@@ -187,7 +187,7 @@ pub fn default_secret_provider() -> &'static DefaultSecretProvider {
 fn env_secrets_allowed() -> bool {
     matches!(
         std::env::var("MANIFOLD_ALLOW_ENV_SECRETS").ok().as_deref(),
-        Some("1") | Some("true") | Some("yes")
+        Some("1" | "true" | "yes")
     )
 }
 

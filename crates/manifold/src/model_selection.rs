@@ -10,7 +10,7 @@
 
 use serde::{Deserialize, Serialize};
 
-use crate::secret::{SecretProvider, default_secret_provider};
+use crate::secret::default_secret_provider;
 use converge_provider::LlmError;
 use converge_provider::selection::{
     AgentRequirements, ComplianceLevel, CostClass, DataSovereignty, ModelSelectorTrait,
