@@ -1,3 +1,6 @@
+> **Archived 2026-07-02** — active milestone tracking moved to Linear (Reflective team).
+> This file is kept for historical context only. Do not add new items here.
+
 ---
 source: mixed
 ---
@@ -30,6 +33,7 @@ source: mixed
 - [x] Tag v1.0.0.
 
 ## Open: pull-driven
+**Epic:** E9
 
 - [ ] Downstream proof that products register Manifold handles through
       `converge_provider::ChatBackendRegistry`.

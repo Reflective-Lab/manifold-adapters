@@ -46,6 +46,9 @@ pub fn extract_first_text(xml: &str, local_name: &str) -> Result<Option<String>,
                     let text = reader
                         .read_text(name)
                         .map_err(|e| XmlExtractError::Parse(e.to_string()))?;
+                    let text = text
+                        .decode()
+                        .map_err(|e| XmlExtractError::Parse(e.to_string()))?;
                     return Ok(Some(text.into_owned()));
                 }
             }
@@ -82,6 +85,9 @@ pub fn extract_all_texts(xml: &str, local_name: &str) -> Result<Vec<String>, Xml
                     let name = start.name();
                     let text = reader
                         .read_text(name)
+                        .map_err(|e| XmlExtractError::Parse(e.to_string()))?;
+                    let text = text
+                        .decode()
                         .map_err(|e| XmlExtractError::Parse(e.to_string()))?;
                     out.push(text.into_owned());
                 }

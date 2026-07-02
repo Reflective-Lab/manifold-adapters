@@ -32,6 +32,20 @@ ignore = [
     # lru 0.12.5 — IterMut unsoundness. Transitive via tantivy → lance-index;
     # we do not call IterMut on lru caches, exposure path is upstream-internal.
     "RUSTSEC-2026-0002",
+    # quick-xml 0.39.4 — duplicate-attribute quadratic run time (0194) and
+    # NsReader namespace-allocation DoS (0195), fixed in >=0.41. Our direct
+    # dep moved to 0.41 (2026-07-02); this pin is transitive via object_store
+    # 0.13.2 (latest available), which uses it to parse S3/Azure API list
+    # responses. Exposure is XML from the operator-configured storage
+    # provider's own API, not arbitrary attacker input, and both advisories
+    # are DoS-class (no memory unsafety). Drop both when object_store
+    # releases against quick-xml >=0.41.
+    "RUSTSEC-2026-0194",
+    "RUSTSEC-2026-0195",
+    # proc-macro-error2 2.0.1 unmaintained (advisory 2026-06-07). Transitive
+    # proc-macro, compile-time only, no runtime surface. No maintained
+    # upstream replacement path yet. Added 2026-07-02.
+    "RUSTSEC-2026-0173",
 ]
 
 [licenses]
