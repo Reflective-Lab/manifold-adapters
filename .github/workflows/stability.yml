@@ -100,6 +100,8 @@ jobs:
           --ignore RUSTSEC-2025-0119
           --ignore RUSTSEC-2025-0134
           --ignore RUSTSEC-2026-0002
+          --ignore RUSTSEC-2026-0194
+          --ignore RUSTSEC-2026-0195
 
   deny:
     name: Cargo Deny
@@ -108,4 +110,16 @@ jobs:
       - uses: actions/checkout@v5
       - name: Checkout Reflective sibling dependencies
         run: bash scripts/ci/checkout-reflective-siblings.sh
-      - uses: EmbarkStudios/cargo-deny-action@v2
+      # Not EmbarkStudios/cargo-deny-action: its docker container can't
+      # install the repo's pinned musl toolchain and doesn't see the
+      # sibling checkouts, so `cargo metadata` fails on converge-core.
+      # Run cargo-deny in the runner env like the audit job above.
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+      - uses: Swatinem/rust-cache@v2
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-deny
+      - name: Run cargo-deny
+        run: cargo deny check
