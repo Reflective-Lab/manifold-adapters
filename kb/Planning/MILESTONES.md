@@ -30,6 +30,7 @@ source: mixed
 - [x] Tag v1.0.0.
 
 ## Open: pull-driven
+**Epic:** E9
 
 - [ ] Downstream proof that products register Manifold handles through
       `converge_provider::ChatBackendRegistry`.
