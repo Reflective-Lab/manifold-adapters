@@ -3,23 +3,23 @@ resolver = "2"
 members = ["crates/manifold"]
 
 [workspace.package]
-version = "1.1.2"
+version = "1.1.3"
 edition = "2024"
 rust-version = "1.96.0"
 license = "MIT"
 repository = "https://github.com/Reflective-Lab/manifold-adapters"
 
 [workspace.dependencies]
-converge-core = "3.9.2"
-converge-experience = "3.9.2"
-converge-pack = "3.9.2"
-converge-provider = "3.9.2"
-converge-storage = "3.9.2"
+converge-core = "3.9.3"
+converge-experience = "3.9.3"
+converge-pack = "3.9.3"
+converge-provider = "3.9.3"
+converge-storage = "3.9.3"
 
 # Cross-extension dep — fuzzy inference engine extracted from prism.
 # Path used for local development; on publish, the version is consumed
 # from crates.io.
-converge-fuzzy-inference = { path = "../prism-analytics/crates/fuzzy", version = "2.0.1" }
+converge-fuzzy-inference = { path = "../prism-analytics/crates/fuzzy", version = "2.0.3" }
 
 arrow-array = "57"
 arrow-schema = "57"
