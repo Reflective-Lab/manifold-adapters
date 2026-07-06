@@ -32,7 +32,7 @@ hf-hub = { version = "0.3", default-features = false, features = ["online", "tok
 parking_lot = "0.12"
 proptest = "1.5"
 lancedb = { version = "0.26", default-features = false }
-object_store = "0.13"
+object_store = "0.14"
 quick-xml = "0.41"
 regex-lite = "0.1"
 reqwest = { version = "0.12", features = ["blocking", "json", "rustls-tls", "stream"], default-features = false }
@@ -93,6 +93,7 @@ converge-optimization = { path = "../../bedrock-platform/converge/crates/optimiz
 converge-runtime      = { path = "../../bedrock-platform/converge/crates/runtime" }
 converge-experience   = { path = "../../bedrock-platform/converge/crates/experience" }
 converge-provider     = { path = "../../bedrock-platform/converge/crates/provider" }
+converge-storage      = { path = "../../bedrock-platform/converge/crates/storage" }
 organism-pack         = { path = "../../bedrock-platform/organism/crates/pack" }
 organism-intent       = { path = "../../bedrock-platform/organism/crates/intent" }
 organism-planning     = { path = "../../bedrock-platform/organism/crates/planning" }
