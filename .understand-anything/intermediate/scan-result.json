@@ -1,0 +1,882 @@
+{
+  "name": "manifold",
+  "description": "Generic adapter implementations for Converge contracts, providing concrete backends for object storage, experience stores, vector recall, LLM providers, search, fetch, feed, embedding, and tool adapters. Note: this project has over 100 source files; consider scoping analysis to a subdirectory for faster results.",
+  "languages": [
+    "example",
+    "json",
+    "markdown",
+    "rust",
+    "toml",
+    "unknown",
+    "yaml"
+  ],
+  "frameworks": [
+    "GitHub Actions",
+    "serde",
+    "tokio"
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "language": "yaml",
+      "sizeLines": 71,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/coverage.yml",
+      "language": "yaml",
+      "sizeLines": 63,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/security.yml",
+      "language": "yaml",
+      "sizeLines": 56,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/stability.yml",
+      "language": "yaml",
+      "sizeLines": 126,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "sizeLines": 1,
+      "fileCategory": "config"
+    },
+    {
+      "path": "AGENTS.md",
+      "language": "markdown",
+      "sizeLines": 39,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "Cargo.toml",
+      "language": "toml",
+      "sizeLines": 105,
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "sizeLines": 73,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "sizeLines": 29,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "language": "markdown",
+      "sizeLines": 17,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "language": "markdown",
+      "sizeLines": 41,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "crates/manifold/.envrc.example",
+      "language": "example",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 172,
+      "fileCategory": "config"
+    },
+    {
+      "path": "crates/manifold/config/model_catalogs.json",
+      "language": "json",
+      "sizeLines": 14,
+      "fileCategory": "config"
+    },
+    {
+      "path": "crates/manifold/config/models.yaml",
+      "language": "yaml",
+      "sizeLines": 2980,
+      "fileCategory": "config"
+    },
+    {
+      "path": "crates/manifold/examples/format_matrix.rs",
+      "language": "rust",
+      "sizeLines": 516,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/examples/live_chat.rs",
+      "language": "rust",
+      "sizeLines": 237,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/examples/refresh_catalog.rs",
+      "language": "rust",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/examples/streaming_demo.rs",
+      "language": "rust",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/brave.rs",
+      "language": "rust",
+      "sizeLines": 687,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/capability_registry.rs",
+      "language": "rust",
+      "sizeLines": 958,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/contract.rs",
+      "language": "rust",
+      "sizeLines": 571,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/cost_routing.rs",
+      "language": "rust",
+      "sizeLines": 293,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/embedding/mod.rs",
+      "language": "rust",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/embedding/qwen_vl.rs",
+      "language": "rust",
+      "sizeLines": 758,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/experience/lancedb_store.rs",
+      "language": "rust",
+      "sizeLines": 523,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/experience/mod.rs",
+      "language": "rust",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/experience/surrealdb_store.rs",
+      "language": "rust",
+      "sizeLines": 496,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/extract.rs",
+      "language": "rust",
+      "sizeLines": 201,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/feed.rs",
+      "language": "rust",
+      "sizeLines": 1102,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/fetch.rs",
+      "language": "rust",
+      "sizeLines": 377,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/fuzzy_fitness.rs",
+      "language": "rust",
+      "sizeLines": 441,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/anthropic.rs",
+      "language": "rust",
+      "sizeLines": 1069,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/arcee.rs",
+      "language": "rust",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/deepseek.rs",
+      "language": "rust",
+      "sizeLines": 544,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/error_classification.rs",
+      "language": "rust",
+      "sizeLines": 424,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/format_contract.rs",
+      "language": "rust",
+      "sizeLines": 651,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/gemini.rs",
+      "language": "rust",
+      "sizeLines": 834,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/kimi.rs",
+      "language": "rust",
+      "sizeLines": 544,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/kong.rs",
+      "language": "rust",
+      "sizeLines": 817,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/minmax.rs",
+      "language": "rust",
+      "sizeLines": 639,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/mistral.rs",
+      "language": "rust",
+      "sizeLines": 577,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/mod.rs",
+      "language": "rust",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/openai.rs",
+      "language": "rust",
+      "sizeLines": 713,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/openrouter.rs",
+      "language": "rust",
+      "sizeLines": 1130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/perplexity.rs",
+      "language": "rust",
+      "sizeLines": 583,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/qwen.rs",
+      "language": "rust",
+      "sizeLines": 547,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/resilient.rs",
+      "language": "rust",
+      "sizeLines": 446,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/retry.rs",
+      "language": "rust",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/selection.rs",
+      "language": "rust",
+      "sizeLines": 619,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/staik.rs",
+      "language": "rust",
+      "sizeLines": 499,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/streaming.rs",
+      "language": "rust",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/llm/writer.rs",
+      "language": "rust",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/model_catalog.rs",
+      "language": "rust",
+      "sizeLines": 383,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/model_selection.rs",
+      "language": "rust",
+      "sizeLines": 1715,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/object_storage/gcs.rs",
+      "language": "rust",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/object_storage/huggingface.rs",
+      "language": "rust",
+      "sizeLines": 476,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/object_storage/local.rs",
+      "language": "rust",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/object_storage/mod.rs",
+      "language": "rust",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/object_storage/s3.rs",
+      "language": "rust",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/pagination.rs",
+      "language": "rust",
+      "sizeLines": 383,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/perplexity.rs",
+      "language": "rust",
+      "sizeLines": 239,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/registry_loader.rs",
+      "language": "rust",
+      "sizeLines": 1641,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/reranker/mod.rs",
+      "language": "rust",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/reranker/qwen_vl.rs",
+      "language": "rust",
+      "sizeLines": 687,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/search.rs",
+      "language": "rust",
+      "sizeLines": 599,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/secret/gcp.rs",
+      "language": "rust",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/secret/keychain.rs",
+      "language": "rust",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/secret/mod.rs",
+      "language": "rust",
+      "sizeLines": 283,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/secret/names.rs",
+      "language": "rust",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tavily.rs",
+      "language": "rust",
+      "sizeLines": 363,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/config.rs",
+      "language": "rust",
+      "sizeLines": 195,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/definition.rs",
+      "language": "rust",
+      "sizeLines": 425,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/error.rs",
+      "language": "rust",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/graphql.rs",
+      "language": "rust",
+      "sizeLines": 340,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/mod.rs",
+      "language": "rust",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/openapi.rs",
+      "language": "rust",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/tools/registry.rs",
+      "language": "rust",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/vector/lancedb.rs",
+      "language": "rust",
+      "sizeLines": 660,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/vector/memory.rs",
+      "language": "rust",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/vector/mod.rs",
+      "language": "rust",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/vector/qdrant.rs",
+      "language": "rust",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/src/xml.rs",
+      "language": "rust",
+      "sizeLines": 196,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/tests/live_llm_endpoints.rs",
+      "language": "rust",
+      "sizeLines": 1060,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crates/manifold/tests/live_search_endpoints.rs",
+      "language": "rust",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "deny.toml",
+      "language": "toml",
+      "sizeLines": 96,
+      "fileCategory": "config"
+    },
+    {
+      "path": "Justfile",
+      "language": "unknown",
+      "sizeLines": 179,
+      "fileCategory": "code"
+    },
+    {
+      "path": "kb/Architecture/Baseten Integration.md",
+      "language": "markdown",
+      "sizeLines": 143,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Architecture/Long-Running Agent Backend.md",
+      "language": "markdown",
+      "sizeLines": 276,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Architecture/SelectedChatBackend Provider Drift Bug.md",
+      "language": "markdown",
+      "sizeLines": 144,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Architecture/Surface.md",
+      "language": "markdown",
+      "sizeLines": 43,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Building/Getting Started.md",
+      "language": "markdown",
+      "sizeLines": 19,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Building/Release Commands.md",
+      "language": "markdown",
+      "sizeLines": 46,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/History/CHANGELOG.md",
+      "language": "markdown",
+      "sizeLines": 17,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Home.md",
+      "language": "markdown",
+      "sizeLines": 29,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/INDEX.md",
+      "language": "markdown",
+      "sizeLines": 23,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/LOG.md",
+      "language": "markdown",
+      "sizeLines": 17,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "kb/Planning/MILESTONES.md",
+      "language": "markdown",
+      "sizeLines": 62,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 173,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "language": "toml",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "SECURITY.md",
+      "language": "markdown",
+      "sizeLines": 29,
+      "fileCategory": "docs"
+    }
+  ],
+  "totalFiles": 103,
+  "filteredByIgnore": 2,
+  "estimatedComplexity": "moderate",
+  "importMap": {
+    ".github/workflows/ci.yml": [],
+    ".github/workflows/coverage.yml": [],
+    ".github/workflows/security.yml": [],
+    ".github/workflows/stability.yml": [],
+    ".understand-anything/.understandignore": [],
+    ".understand-anything/config.json": [],
+    "AGENTS.md": [],
+    "Cargo.toml": [],
+    "CHANGELOG.md": [],
+    "CLAUDE.md": [],
+    "CODE_OF_CONDUCT.md": [],
+    "CONTRIBUTING.md": [],
+    "crates/manifold/.envrc.example": [],
+    "crates/manifold/Cargo.toml": [],
+    "crates/manifold/config/model_catalogs.json": [],
+    "crates/manifold/config/models.yaml": [],
+    "crates/manifold/examples/format_matrix.rs": [],
+    "crates/manifold/examples/live_chat.rs": [],
+    "crates/manifold/examples/refresh_catalog.rs": [],
+    "crates/manifold/examples/streaming_demo.rs": [],
+    "crates/manifold/src/brave.rs": [
+      "crates/manifold/src/search.rs"
+    ],
+    "crates/manifold/src/capability_registry.rs": [
+      "crates/manifold/src/brave.rs",
+      "crates/manifold/src/feed.rs",
+      "crates/manifold/src/fetch.rs",
+      "crates/manifold/src/search.rs",
+      "crates/manifold/src/tavily.rs"
+    ],
+    "crates/manifold/src/contract.rs": [],
+    "crates/manifold/src/cost_routing.rs": [
+      "crates/manifold/src/model_selection.rs"
+    ],
+    "crates/manifold/src/embedding/mod.rs": [
+      "crates/manifold/src/embedding/qwen_vl.rs"
+    ],
+    "crates/manifold/src/embedding/qwen_vl.rs": [],
+    "crates/manifold/src/experience/lancedb_store.rs": [],
+    "crates/manifold/src/experience/mod.rs": [
+      "crates/manifold/src/experience/lancedb_store.rs",
+      "crates/manifold/src/experience/surrealdb_store.rs"
+    ],
+    "crates/manifold/src/experience/surrealdb_store.rs": [],
+    "crates/manifold/src/extract.rs": [],
+    "crates/manifold/src/feed.rs": [
+      "crates/manifold/src/fetch.rs",
+      "crates/manifold/src/search.rs"
+    ],
+    "crates/manifold/src/fetch.rs": [
+      "crates/manifold/src/search.rs"
+    ],
+    "crates/manifold/src/fuzzy_fitness.rs": [
+      "crates/manifold/src/model_selection.rs"
+    ],
+    "crates/manifold/src/lib.rs": [
+      "crates/manifold/src/brave.rs",
+      "crates/manifold/src/capability_registry.rs",
+      "crates/manifold/src/contract.rs",
+      "crates/manifold/src/cost_routing.rs",
+      "crates/manifold/src/embedding/mod.rs",
+      "crates/manifold/src/experience/mod.rs",
+      "crates/manifold/src/extract.rs",
+      "crates/manifold/src/feed.rs",
+      "crates/manifold/src/fetch.rs",
+      "crates/manifold/src/fuzzy_fitness.rs",
+      "crates/manifold/src/llm/mod.rs",
+      "crates/manifold/src/model_catalog.rs",
+      "crates/manifold/src/model_selection.rs",
+      "crates/manifold/src/object_storage/mod.rs",
+      "crates/manifold/src/pagination.rs",
+      "crates/manifold/src/perplexity.rs",
+      "crates/manifold/src/registry_loader.rs",
+      "crates/manifold/src/reranker/mod.rs",
+      "crates/manifold/src/search.rs",
+      "crates/manifold/src/secret/mod.rs",
+      "crates/manifold/src/tavily.rs",
+      "crates/manifold/src/tools/mod.rs",
+      "crates/manifold/src/vector/mod.rs",
+      "crates/manifold/src/xml.rs"
+    ],
+    "crates/manifold/src/llm/anthropic.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/arcee.rs": [
+      "crates/manifold/src/llm/mod.rs",
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/deepseek.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/error_classification.rs": [],
+    "crates/manifold/src/llm/format_contract.rs": [],
+    "crates/manifold/src/llm/gemini.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/kimi.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/kong.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/minmax.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/mistral.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/mod.rs": [
+      "crates/manifold/src/llm/anthropic.rs",
+      "crates/manifold/src/llm/arcee.rs",
+      "crates/manifold/src/llm/deepseek.rs",
+      "crates/manifold/src/llm/error_classification.rs",
+      "crates/manifold/src/llm/format_contract.rs",
+      "crates/manifold/src/llm/gemini.rs",
+      "crates/manifold/src/llm/kimi.rs",
+      "crates/manifold/src/llm/kong.rs",
+      "crates/manifold/src/llm/minmax.rs",
+      "crates/manifold/src/llm/mistral.rs",
+      "crates/manifold/src/llm/openai.rs",
+      "crates/manifold/src/llm/openrouter.rs",
+      "crates/manifold/src/llm/perplexity.rs",
+      "crates/manifold/src/llm/qwen.rs",
+      "crates/manifold/src/llm/resilient.rs",
+      "crates/manifold/src/llm/retry.rs",
+      "crates/manifold/src/llm/selection.rs",
+      "crates/manifold/src/llm/staik.rs",
+      "crates/manifold/src/llm/streaming.rs",
+      "crates/manifold/src/llm/writer.rs"
+    ],
+    "crates/manifold/src/llm/openai.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/openrouter.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/perplexity.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/qwen.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/resilient.rs": [],
+    "crates/manifold/src/llm/retry.rs": [],
+    "crates/manifold/src/llm/selection.rs": [
+      "crates/manifold/src/llm/mod.rs",
+      "crates/manifold/src/model_selection.rs",
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/staik.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/llm/streaming.rs": [],
+    "crates/manifold/src/llm/writer.rs": [
+      "crates/manifold/src/llm/mod.rs",
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/model_catalog.rs": [],
+    "crates/manifold/src/model_selection.rs": [
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/object_storage/gcs.rs": [],
+    "crates/manifold/src/object_storage/huggingface.rs": [],
+    "crates/manifold/src/object_storage/local.rs": [],
+    "crates/manifold/src/object_storage/mod.rs": [
+      "crates/manifold/src/object_storage/gcs.rs",
+      "crates/manifold/src/object_storage/huggingface.rs",
+      "crates/manifold/src/object_storage/local.rs",
+      "crates/manifold/src/object_storage/s3.rs"
+    ],
+    "crates/manifold/src/object_storage/s3.rs": [],
+    "crates/manifold/src/pagination.rs": [
+      "crates/manifold/src/search.rs"
+    ],
+    "crates/manifold/src/perplexity.rs": [
+      "crates/manifold/src/search.rs",
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/registry_loader.rs": [
+      "crates/manifold/src/model_selection.rs"
+    ],
+    "crates/manifold/src/reranker/mod.rs": [
+      "crates/manifold/src/reranker/qwen_vl.rs"
+    ],
+    "crates/manifold/src/reranker/qwen_vl.rs": [],
+    "crates/manifold/src/search.rs": [],
+    "crates/manifold/src/secret/gcp.rs": [],
+    "crates/manifold/src/secret/keychain.rs": [],
+    "crates/manifold/src/secret/mod.rs": [
+      "crates/manifold/src/secret/gcp.rs",
+      "crates/manifold/src/secret/keychain.rs",
+      "crates/manifold/src/secret/names.rs"
+    ],
+    "crates/manifold/src/secret/names.rs": [],
+    "crates/manifold/src/tavily.rs": [
+      "crates/manifold/src/search.rs",
+      "crates/manifold/src/secret/mod.rs"
+    ],
+    "crates/manifold/src/tools/config.rs": [],
+    "crates/manifold/src/tools/definition.rs": [],
+    "crates/manifold/src/tools/error.rs": [],
+    "crates/manifold/src/tools/graphql.rs": [],
+    "crates/manifold/src/tools/mod.rs": [
+      "crates/manifold/src/tools/config.rs",
+      "crates/manifold/src/tools/definition.rs",
+      "crates/manifold/src/tools/error.rs",
+      "crates/manifold/src/tools/graphql.rs",
+      "crates/manifold/src/tools/openapi.rs",
+      "crates/manifold/src/tools/registry.rs"
+    ],
+    "crates/manifold/src/tools/openapi.rs": [],
+    "crates/manifold/src/tools/registry.rs": [],
+    "crates/manifold/src/vector/lancedb.rs": [],
+    "crates/manifold/src/vector/memory.rs": [],
+    "crates/manifold/src/vector/mod.rs": [
+      "crates/manifold/src/vector/lancedb.rs",
+      "crates/manifold/src/vector/memory.rs",
+      "crates/manifold/src/vector/qdrant.rs"
+    ],
+    "crates/manifold/src/vector/qdrant.rs": [],
+    "crates/manifold/src/xml.rs": [],
+    "crates/manifold/tests/live_llm_endpoints.rs": [],
+    "crates/manifold/tests/live_search_endpoints.rs": [],
+    "deny.toml": [],
+    "Justfile": [],
+    "kb/Architecture/Baseten Integration.md": [],
+    "kb/Architecture/Long-Running Agent Backend.md": [],
+    "kb/Architecture/SelectedChatBackend Provider Drift Bug.md": [],
+    "kb/Architecture/Surface.md": [],
+    "kb/Building/Getting Started.md": [],
+    "kb/Building/Release Commands.md": [],
+    "kb/History/CHANGELOG.md": [],
+    "kb/Home.md": [],
+    "kb/INDEX.md": [],
+    "kb/LOG.md": [],
+    "kb/Planning/MILESTONES.md": [],
+    "README.md": [],
+    "rust-toolchain.toml": [],
+    "SECURITY.md": []
+  }
+}

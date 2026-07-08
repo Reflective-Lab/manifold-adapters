@@ -8,3 +8,4 @@ Cargo.lock
 .env
 .env.local
 .claude/
+.understand-anything/.trash-*/
