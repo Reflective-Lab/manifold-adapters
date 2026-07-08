@@ -9,6 +9,10 @@ Versioning before 1.0 with the usual pre-1.0 compatibility caveats.
 
 ### Added
 
+- `understand-anything` knowledge graph (`.understand-anything/knowledge-graph.json`) — 430 nodes, 616 edges, 10 architectural layers, 13-step guided tour. Checked into git; regenerate with `/understand-anything:understand` after significant structural changes.
+
+
+
 - `DefaultSecretProvider` resolves adapter credentials from macOS Keychain
   (local dev) and GCP Secret Manager (`gcp-secrets` feature, deployed hosts).
   Environment variables are opt-in via `MANIFOLD_ALLOW_ENV_SECRETS=1` for CI —
